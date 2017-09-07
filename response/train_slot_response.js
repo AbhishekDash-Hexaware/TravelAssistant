@@ -12,9 +12,12 @@ module.exports={
 
     console.log("Slot Response Builder");
     console.log("checking out type",JSON.stringify(request.body));
-    if(request.body.result.contexts[0].name=="findtrainintent_dialog_params_destination"){
+    if(request.body.result.parameters.destination==null&&request.body.result.parameters.source==null){
+      //DO NOTHING!
+    }
+    else if(request.body.result.contexts[0].name=="trainsbetween-followup"){
     console.log("User Input Destination Slot Value : "+request.body.originalRequest.data.message.text);
-    var matched  =spell.conversationNorm(request.body.originalRequest.data.message.text);
+    var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
     var facebookResponse={
                              "speech": "",
                              "displayText": "",
