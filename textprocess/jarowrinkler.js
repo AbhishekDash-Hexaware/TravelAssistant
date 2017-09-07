@@ -10,7 +10,12 @@ module.exports = {
     all_station_names.forEach(function(element){
       if(natural.JaroWinklerDistance(element.synonyms[0], station_name)>=0.85){
       //console.log(natural.JaroWinklerDistance(element.synonyms[0], station_name),element.synonyms[0],station_name);
-      matched_stations.push(element.synonyms[0])
+      matched_stations.push({
+        "content_type":"text",
+        "title":element.synonyms[0],
+        "payload":element.synonyms[0]
+      })
+      // matched_stations.push(element.synonyms[0])
     }
     })
     return(matched_stations);
