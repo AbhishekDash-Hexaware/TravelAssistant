@@ -42,7 +42,7 @@ module.exports={
 
     else if(request.body.result.contexts[1].name=="findtrainintent_dialog_params_destination"){
       if(request.body.result.parameters.destination==null){
-            console.log("User Input Incorrect Destination Slot Value : "+request.body.originalRequest.data.message.text);
+            console.log("User Input Incorrect Destination Slot Value : "+request.body.result.resolvedQuery);
             var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
             var facebookResponse={
                                      "speech": "",
@@ -67,9 +67,9 @@ module.exports={
       }
     }
 
-    else if(request.body.result.contexts[1].name=="findtrainintent_dialog_params_source"){
+    else if(request.body.result.contexts[0].name=="findtrainintent_dialog_params_source"){
       if(request.body.result.parameters.source==null){
-        console.log("User Input Incorrect Source Slot Value : "+request.body.originalRequest.data.message.text);
+        console.log("User Input Incorrect Source Slot Value : "+request.body.result.resolvedQuery);
         var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
         var facebookResponse={
                                  "speech": "",
