@@ -77,7 +77,7 @@ module.exports={
                                  "data": {
                                    "facebook": [
                                      {
-                                         "text":"These are the stations I found for your Source. Select a specific one please.",
+                                         "text":"These are the stations I found for your Destination. Select a specific one please.",
                                          "quick_replies":matched
                                      }
                                    ]
@@ -90,7 +90,7 @@ module.exports={
     //DO NOTHING
     }
     else{
-      console.log("User Input Correct Source Slot Value : "+request.body.result.parameters.source);
+      console.log("User Input Correct Destination Slot Value : "+request.body.result.parameters.destination);
     }
   }
 
