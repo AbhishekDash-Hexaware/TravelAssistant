@@ -89,6 +89,22 @@ module.exports={
         else{
           console.log("Will build Quick Replies for Source");
           console.log(matched);
+          var facebookResponse={
+                                         "speech": "",
+                                         "displayText": "",
+                                         "data": {
+                                           "facebook": [
+                                             {
+                                                 "text":"These are the stations I found for your source. Select a specific one please.",
+                                                 "quick_replies":matched
+                                             }
+                                           ]
+                                         },
+                                         "contextOut": [],
+                                         "source": "DuckDuckGo"
+                                       }
+
+               response.send(facebookResponse);
         }
       }
       else if(request.body.result.parameters.source!=""){
