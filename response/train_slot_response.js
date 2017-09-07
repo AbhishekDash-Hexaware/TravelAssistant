@@ -39,7 +39,7 @@ module.exports={
     //Date response Default
     if(request.body.result.fulfillment.speech=="Please tell me the Destination Station Code or the Station City name to where you will be travelling."){
       console.log("Resolved Query : "+request.body.result.resolvedQuery);
-      if(request.body.result.parameters.destination=="")
+      if(request.body.result.parameters.destination==""){
         console.log("Destination Prompt Asked");
       }
       else if(request.body.result.parameters.destination!=""){
@@ -49,33 +49,43 @@ module.exports={
 
     }
 
+//
 
-
-    if(request.body.result.contexts[0].name=="trainsbetween-followup"){
+    else if((request.body.result.fulfillment.speech=="Kindly tell me the Source Station Code or the Station City name from where you will be travelling."){
+      console.log("Resolved Query : "+request.body.result.resolvedQuery);
       if(request.body.result.parameters.destination==""){
-            console.log("User Input Incorrect Destination Slot Value : "+request.body.result.resolvedQuery);
-            var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
-            var facebookResponse={
-                                     "speech": "",
-                                     "displayText": "",
-                                     "data": {
-                                       "facebook": [
-                                         {
-                                             "text":"These are the stations I found for your Destination. Select a specific one please.",
-                                             "quick_replies":matched
-                                         }
-                                       ]
-                                     },
-                                     "contextOut": [],
-                                     "source": "DuckDuckGo"
-                                   }
+        console.log("Destination Prompt Asked");
+      }
+      else if(request.body.result.parameters.destination!=""){
+        console.log("Destination Obtained Correctly : "+request.body.result.parameters.destination);
 
-           response.send(facebookResponse);
       }
-      else{
-        //NOW SHOWS SOURCE PROMPT
-        console.log("User Input Correct Destination Slot Value : "+request.body.result.parameters.destination);
-      }
+
+
+      // if(request.body.result.parameters.destination==""){
+      //       console.log("User Input Incorrect Destination Slot Value : "+request.body.result.resolvedQuery);
+      //       var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
+      //       var facebookResponse={
+      //                                "speech": "",
+      //                                "displayText": "",
+      //                                "data": {
+      //                                  "facebook": [
+      //                                    {
+      //                                        "text":"These are the stations I found for your Destination. Select a specific one please.",
+      //                                        "quick_replies":matched
+      //                                    }
+      //                                  ]
+      //                                },
+      //                                "contextOut": [],
+      //                                "source": "DuckDuckGo"
+      //                              }
+      //
+      //      response.send(facebookResponse);
+      // }
+      // else{
+      //   //NOW SHOWS SOURCE PROMPT
+      //   console.log("User Input Correct Destination Slot Value : "+request.body.result.parameters.destination);
+      // }
     }
 
     else if(request.body.result.contexts[0].name=="findtrainintent_dialog_params_source"){
