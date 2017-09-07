@@ -51,7 +51,7 @@ module.exports={
 
 //
 
-    else if((request.body.result.fulfillment.speech=="Kindly tell me the Source Station Code or the Station City name from where you will be travelling."){
+    else if(request.body.result.fulfillment.speech=="Kindly tell me the Source Station Code or the Station City name from where you will be travelling."){
       console.log("Resolved Query : "+request.body.result.resolvedQuery);
       if(request.body.result.parameters.source==""){
         console.log("Source Prompt Asked");
