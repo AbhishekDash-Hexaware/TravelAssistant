@@ -11,8 +11,8 @@ module.exports={
 
 
     console.log("Slot Response Builder");
-    console.log("checking out type",JSON.stringify(request.body.result.contexts[0]));
-    if(request.body.result.parameters.destination==null&&request.body.result.parameters.source==null){
+    console.log("Current Context : ",JSON.stringify(request.body.result.contexts[0]));
+    if(request.body.result.parameters.destination==""&&request.body.result.parameters.source==""){
       //DO NOTHING!
       console.log("Basic Utterance Triggered");
     }
