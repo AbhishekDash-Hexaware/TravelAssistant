@@ -11,7 +11,7 @@ module.exports={
 
 
     console.log("Slot Response Builder");
-    //console.log("checking out type",JSON.stringify(request.body));
+    console.log("checking out type",JSON.stringify(request.body));
     if(request.body.result.contexts[0].name=="findtrainintent_dialog_params_destination"){
     console.log("User Input Destination Slot Value : "+request.body.originalRequest.data.message.text);
     var matched  =spell.conversationNorm(request.body.originalRequest.data.message.text);
