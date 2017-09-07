@@ -15,46 +15,82 @@ module.exports={
     if(request.body.result.parameters.destination==null&&request.body.result.parameters.source==null){
       //DO NOTHING!
     }
-    else if(request.body.result.contexts[0].name=="journeyplan"){
-    console.log("User Input Destination Slot Value : "+request.body.originalRequest.data.message.text);
-    var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
-    var facebookResponse={
-                             "speech": "",
-                             "displayText": "",
-                             "data": {
-                               "facebook": [
-                                 {
-                                     "text":"These are the stations I found. Select a specific one please.",
-                                     "quick_replies":matched
-                                 }
-                               ]
-                             },
-                             "contextOut": [],
-                             "source": "DuckDuckGo"
-                           }
+    //findtrainintent_dialog_params_destination
+    //When Howrag
+    //Execute Jaro
+    //Custom Response Destination
 
-   response.send(facebookResponse);
-    }
-    else if(request.body.result.contexts[0].name=="findtrainintent_dialog_params_source"){
-      console.log("User Input Source Slot Value : "+request.body.originalRequest.data.message.text);
-      var matched  =spell.conversationNorm(request.body.originalRequest.data.message.text);
-      var facebookResponse={
-                               "speech": "",
-                               "displayText": "",
-                               "data": {
-                                 "facebook": [
-                                   {
-                                       "text":"These are the stations I found. Select a specific one please.",
-                                       "quick_replies":matched
+    //findtrainintent_dialog_params_source
+    //When Correctly HOWRAH
+    //No Jaro, Proceed
+    //Source Response Default
+
+    //findtrainintent_dialog_params_source
+    //When Chennayi
+    //Execute Jaro
+    //Custom Response for Source with Quick Replies
+
+    //findtrainintent_dialog_context
+    //When Correctly CHENNAI
+    //No Jaro, Proceed
+    //Date response Default
+
+
+
+
+    else if(request.body.result.contexts[0].name=="findtrainintent_dialog_params_destination"){
+      if(request.body.result.parameters.destination==null){
+            console.log("User Input Incorrect Destination Slot Value : "+request.body.originalRequest.data.message.text);
+            var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
+            var facebookResponse={
+                                     "speech": "",
+                                     "displayText": "",
+                                     "data": {
+                                       "facebook": [
+                                         {
+                                             "text":"These are the stations I found for your Destination. Select a specific one please.",
+                                             "quick_replies":matched
+                                         }
+                                       ]
+                                     },
+                                     "contextOut": [],
+                                     "source": "DuckDuckGo"
                                    }
-                                 ]
-                               },
-                               "contextOut": [],
-                               "source": "DuckDuckGo"
-                             }
 
-     response.send(facebookResponse);
+           response.send(facebookResponse);
+      }
+      else{
+        //NOW SHOWS SOURCE PROMPT
+        console.log("User Input Correct Destination Slot Value : "+request.body.result.parameters.destination);
+      }
     }
+
+    else if(request.body.result.contexts[0].name=="findtrainintent_dialog_params_source"){
+      if(request.body.result.parameters.source==null){
+        console.log("User Input Incorrect Destination Slot Value : "+request.body.originalRequest.data.message.text);
+        var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
+        var facebookResponse={
+                                 "speech": "",
+                                 "displayText": "",
+                                 "data": {
+                                   "facebook": [
+                                     {
+                                         "text":"These are the stations I found for your Destination. Select a specific one please.",
+                                         "quick_replies":matched
+                                     }
+                                   ]
+                                 },
+                                 "contextOut": [],
+                                 "source": "DuckDuckGo"
+                               }
+
+       response.send(facebookResponse);
+    //DO NOTHING
+    }
+    else{
+      console.log("User Input Correct Source Slot Value : "+request.body.result.parameters.source);
+    }
+  }
 
 
 
