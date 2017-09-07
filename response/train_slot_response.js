@@ -13,10 +13,11 @@ module.exports={
     console.log("Slot Response Builder");
     console.log("Current Context : ",JSON.stringify(request.body.result.contexts[0]));
     console.log("Next Context : ",JSON.stringify(request.body.result.contexts[1]));
-    if(request.body.result.parameters.destination==""&&request.body.result.parameters.source==""){
-      //DO NOTHING!
-      console.log("Basic Utterance Triggered, Should ask for Destination");
-    }
+    // if(request.body.result.parameters.destination==""&&request.body.result.parameters.source==""){
+    //   //DO NOTHING!
+    //   console.log("Basic Utterance Triggered, Should ask for Destination");
+    // }
+
     //findtrainintent_dialog_params_destination
     //When Howrag
     //Execute Jaro
@@ -40,7 +41,7 @@ module.exports={
 
 
 
-    else if(request.body.result.contexts[1].name=="findtrainintent_dialog_params_destination"){
+    if(request.body.result.contexts[0].name=="trainsbetween-followup"){
       if(request.body.result.parameters.destination==null){
             console.log("User Input Incorrect Destination Slot Value : "+request.body.result.resolvedQuery);
             var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
