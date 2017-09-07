@@ -37,7 +37,10 @@ module.exports={
     //When Correctly CHENNAI
     //No Jaro, Proceed
     //Date response Default
-
+    if(request.body.result.contexts[0].name=="trainsbetween-followup"&&request.body.result.parameters.destination==""&&request.body.result.parameters.source==""){
+      console.log(request.body.result.resolvedQuery);
+      console.log("Basic Utterance");
+    }
 
 
 
