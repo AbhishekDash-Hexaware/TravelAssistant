@@ -1,6 +1,5 @@
 module.exports={
   "data":{
-
    "name":"STATIONS",
    "entries":[
       {
