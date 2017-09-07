@@ -14,6 +14,7 @@ module.exports={
     console.log("checking out type",JSON.stringify(request.body.result.contexts[0]));
     if(request.body.result.parameters.destination==null&&request.body.result.parameters.source==null){
       //DO NOTHING!
+      console.log("Basic Utterance Triggered");
     }
     //findtrainintent_dialog_params_destination
     //When Howrag
