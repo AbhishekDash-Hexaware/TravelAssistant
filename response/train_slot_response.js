@@ -68,8 +68,9 @@ module.exports={
     }
 
     else if(request.body.result.contexts[0].name=="findtrainintent_dialog_params_source"){
-      if(request.body.result.parameters.source==null){
-        console.log("User Input Incorrect Source Slot Value : "+request.body.result.resolvedQuery);
+      if(request.body.result.parameters.destination==null){
+        console.log("Destination Slot Not Fulfilled. Spelling Wrong");
+        console.log("User Input Incorrect Destination Slot Value : "+request.body.result.resolvedQuery);
         var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
         var facebookResponse={
                                  "speech": "",
@@ -91,6 +92,7 @@ module.exports={
     }
     else{
       console.log("User Input Correct Destination Slot Value : "+request.body.result.parameters.destination);
+      console.log("Bot should Respond with Source Station Prompt Now");
     }
   }
 
