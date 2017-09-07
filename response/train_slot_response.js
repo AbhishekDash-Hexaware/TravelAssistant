@@ -15,7 +15,7 @@ module.exports={
     if(request.body.result.parameters.destination==null&&request.body.result.parameters.source==null){
       //DO NOTHING!
     }
-    else if(request.body.result.contexts[0].name=="trainsbetween-followup"){
+    else if(request.body.result.contexts[0].name=="journeyplan"){
     console.log("User Input Destination Slot Value : "+request.body.originalRequest.data.message.text);
     var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
     var facebookResponse={
