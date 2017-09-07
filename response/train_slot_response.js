@@ -49,6 +49,22 @@ module.exports={
           else{
             console.log("Will build Quick Replies for Destination");
             console.log(matched);
+            var facebookResponse={
+                                           "speech": "",
+                                           "displayText": "",
+                                           "data": {
+                                             "facebook": [
+                                               {
+                                                   "text":"These are the stations I found for your Destination. Select a specific one please.",
+                                                   "quick_replies":matched
+                                               }
+                                             ]
+                                           },
+                                           "contextOut": [],
+                                           "source": "DuckDuckGo"
+                                         }
+
+                 response.send(facebookResponse);
           }
 
       }
