@@ -53,11 +53,11 @@ module.exports={
 
     else if((request.body.result.fulfillment.speech=="Kindly tell me the Source Station Code or the Station City name from where you will be travelling."){
       console.log("Resolved Query : "+request.body.result.resolvedQuery);
-      if(request.body.result.parameters.destination==""){
-        console.log("Destination Prompt Asked");
+      if(request.body.result.parameters.source==""){
+        console.log("Source Prompt Asked");
       }
-      else if(request.body.result.parameters.destination!=""){
-        console.log("Destination Obtained Correctly : "+request.body.result.parameters.destination);
+      else if(request.body.result.parameters.source!=""){
+        console.log("Source Obtained Correctly : "+request.body.result.parameters.source);
 
       }
 
