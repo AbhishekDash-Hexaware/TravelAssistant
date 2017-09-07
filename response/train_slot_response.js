@@ -41,6 +41,16 @@ module.exports={
       console.log("Resolved Query : "+request.body.result.resolvedQuery);
       if(request.body.result.parameters.destination==""){
         console.log("Destination Prompt Asked");
+          var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
+          console.log("Matches returned : "+matched);
+          if(matched.length==0){
+            console.log("Proceed with Default Destination Response");
+          }
+          else{
+            console.log("Will build Quick Replies for Destination");
+            console.log(matched);
+          }
+
       }
       else if(request.body.result.parameters.destination!=""){
         console.log("Destination Obtained Correctly : "+request.body.result.parameters.destination);
@@ -55,6 +65,15 @@ module.exports={
       console.log("Resolved Query : "+request.body.result.resolvedQuery);
       if(request.body.result.parameters.source==""){
         console.log("Source Prompt Asked");
+        var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
+        console.log("Matches returned : "+matched);
+        if(matched.length==0){
+          console.log("Proceed with Default Source Response");
+        }
+        else{
+          console.log("Will build Quick Replies for Source");
+          console.log(matched);
+        }
       }
       else if(request.body.result.parameters.source!=""){
         console.log("Source Obtained Correctly : "+request.body.result.parameters.source);
