@@ -37,9 +37,16 @@ module.exports={
     //When Correctly CHENNAI
     //No Jaro, Proceed
     //Date response Default
-    if(request.body.result.contexts[0].name=="trainsbetween-followup"&&request.body.result.parameters.destination==""&&request.body.result.parameters.source==""){
-      console.log(request.body.result.resolvedQuery);
-      console.log("Basic Utterance");
+    if(request.body.result.fulfillment.speech=="Please tell me the Destination Station Code or the Station City name to where you will be travelling."){
+      console.log("Resolved Query : "+request.body.result.resolvedQuery);
+      if(request.body.result.parameters.destination=="")
+        console.log("Destination Prompt Asked");
+      }
+      else if(request.body.result.parameters.destination!=""){
+        console.log("Destination Obtained Correctly : "+request.body.result.parameters.destination);
+
+      }
+
     }
 
 
