@@ -12,9 +12,10 @@ module.exports={
 
     console.log("Slot Response Builder");
     console.log("Current Context : ",JSON.stringify(request.body.result.contexts[0]));
+    console.log("Next Context : ",JSON.stringify(request.body.result.contexts[1]));
     if(request.body.result.parameters.destination==""&&request.body.result.parameters.source==""){
       //DO NOTHING!
-      console.log("Basic Utterance Triggered");
+      console.log("Basic Utterance Triggered, Should ask for Destination");
     }
     //findtrainintent_dialog_params_destination
     //When Howrag
