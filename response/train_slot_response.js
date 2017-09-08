@@ -52,7 +52,7 @@ module.exports={
             console.log("Will build Quick Replies for Destination");
             console.log(matched);
             var facebookResponse={
-                                           "speech": "destination",
+                                           "speech": "",
                                            "displayText": "",
                                            "data": {
                                              "facebook": [
@@ -77,17 +77,17 @@ module.exports={
 
     }
 
-//
+//myString.substr(-1);
 
     else if(request.body.result.fulfillment.speech=="Kindly tell me the Source Station Code or the Station City name from where you will be travelling."){
       console.log("Resolved Query : "+request.body.result.resolvedQuery);
-      if(request.body.result.fulfillment.source=="destination"){
+      if(request.body.result.resolvedQuery.substr(-1)=="$"){
         let tempQuery = " ";
       }
 
       if(request.body.result.parameters.destination!=""&&request.body.result.parameters.source==""){
         console.log("Destination Prompt Input Correctly");
-        var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
+        var matched  =spell.conversationNorm(tempQuery);
         console.log("Matches returned for Source : "+matched);
         if(matched.length==0){
           console.log("Proceed with Default Source Response");
