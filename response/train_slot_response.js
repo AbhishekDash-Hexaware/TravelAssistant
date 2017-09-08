@@ -12,10 +12,10 @@ module.exports={
 
 
     console.log("Slot Response Builder");
-    console.log(JSON.stringify(request.body));
-    console.log("Current Context : ",JSON.stringify(request.body.result.contexts[0]));
-    console.log("Next Context : ",JSON.stringify(request.body.result.contexts[1]));
-    console.log("Custom Source Value : "+request.body.result.fulfillment.source);
+    // console.log(JSON.stringify(request.body));
+    // console.log("Current Context : ",JSON.stringify(request.body.result.contexts[0]));
+    // console.log("Next Context : ",JSON.stringify(request.body.result.contexts[1]));
+    // console.log("Custom Source Value : "+request.body.result.fulfillment.source);
     // if(request.body.result.parameters.destination==""&&request.body.result.parameters.source==""){
     //   //DO NOTHING!
     //   console.log("Basic Utterance Triggered, Should ask for Destination");
