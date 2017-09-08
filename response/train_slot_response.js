@@ -86,7 +86,7 @@ module.exports={
       lastChar=lastChar.substr(lastChar.length-1);
       if(lastChar=="$"){
         console.log("Reinitializing resolvedQuery to Blank");
-        let tempQuery = " ";
+        var tempQuery = " ";
       }
 
       if(request.body.result.parameters.destination!=""&&request.body.result.parameters.source==""){
