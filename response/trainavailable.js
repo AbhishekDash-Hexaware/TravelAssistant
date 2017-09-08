@@ -301,15 +301,15 @@ console.log("Loop End : "+trainlength);
       }
 
       else if(flag==4){
-
+        var messageIntermediate = "*Please note I don't show results of any Special Trains.";
         var facebookResponse = {
                                 "speech": "",
                                 "displayText": "",
                                 "data": {
                                   "facebook": [{
-                                    "text":messageOne
+                                    "text": messageOne
                                   },{
-                                    "text":"*Please note I don't show results of any Special Trains."
+                                    "text": messageIntermediate
                                   },{
                                           "text":messageTwo,
                                           "quick_replies":[
@@ -352,7 +352,7 @@ console.log("Loop End : "+trainlength);
   'TrainCarouselNoData' : function(src,dst,response){
     //console.log("Building Train Carousel No Data");
     if(src==dst){
-      var messageOne = "You seem to have given the destination and the source as the same station. That can't be right."
+      var messageOne = "You seem to have given the Destination and the Source as the same station. That can't be right."
       var facebookResponse = {
                               "speech": "",
                               "displayText": "",
