@@ -309,6 +309,8 @@ console.log("Loop End : "+trainlength);
                                   "facebook": [{
                                     "text": messageOne
                                   },{
+                                    "text": "messageIntermediate"
+                                  },{
                                     "text": messageIntermediate
                                   },{
                                           "text":messageTwo,
