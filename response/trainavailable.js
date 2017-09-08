@@ -29,6 +29,7 @@ module.exports = {
       var messageOne = "There is only "+train_number.length+" train available.";
     }
     else if(train_number.length==0){
+      console.log("Train Number =0 and Flag 4");
       var flag=4;
     }
     else{
