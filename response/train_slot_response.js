@@ -82,6 +82,8 @@ module.exports={
 
     else if(request.body.result.fulfillment.speech=="Kindly tell me the Source Station Code or the Station City name from where you will be travelling."){
       console.log("Resolved Query : "+request.body.result.resolvedQuery);
+      if(request.body.result.parameters.source==""){
+
       let lastChar = request.body.result.resolvedQuery;
       lastChar=lastChar.substr(lastChar.length-1);
       if(lastChar=="$"){
@@ -120,6 +122,7 @@ module.exports={
                response.send(facebookResponse);
         }
       }
+    }
 
 
         //else if(request.body.result.parameters.source==""){
