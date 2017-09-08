@@ -11,6 +11,7 @@ module.exports = {
       if(natural.JaroWinklerDistance(element.synonyms[0], station_name)>=0.85){
       //console.log(natural.JaroWinklerDistance(element.synonyms[0], station_name),element.synonyms[0],station_name);
 			let payloadtitle = element.synonyms[0].replace(/\b[a-z]/g,function(f){return f.toUpperCase();});
+			console.log(payloadtitle);
 			let payloadtext=element.synonyms[0]+" $";
       matched_stations.push({
         "content_type":"text",
