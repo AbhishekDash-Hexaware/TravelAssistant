@@ -80,9 +80,10 @@ module.exports={
 
     else if(request.body.result.fulfillment.speech=="Kindly tell me the Source Station Code or the Station City name from where you will be travelling."){
       console.log("Resolved Query : "+request.body.result.resolvedQuery);
+      let tempQuery = " ";
       if(request.body.result.parameters.destination!=""&&request.body.result.parameters.source==""){
         console.log("Destination Prompt Input Correctly");
-        var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
+        var matched  =spell.conversationNorm(tempQuery);
         console.log("Matches returned for Source : "+matched);
         if(matched.length==0){
           console.log("Proceed with Default Source Response");
@@ -154,34 +155,34 @@ module.exports={
       // }
     }
 
-    else if(request.body.result.contexts[0].name=="findtrainintent_dialog_params_source"){
-      if(request.body.result.parameters.destination==""){
-        console.log("Destination Slot Not Fulfilled. Spelling Wrong");
-        console.log("User Input Incorrect Destination Slot Value : "+request.body.result.resolvedQuery);
-        var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
-        var facebookResponse={
-                                 "speech": "",
-                                 "displayText": "",
-                                 "data": {
-                                   "facebook": [
-                                     {
-                                         "text":"These are the stations I found for your Destination. Select a specific one please.",
-                                         "quick_replies":matched
-                                     }
-                                   ]
-                                 },
-                                 "contextOut": [],
-                                 "source": "DuckDuckGo"
-                               }
-
-       response.send(facebookResponse);
-    //DO NOTHING
-    }
-    else{
-      console.log("User Input Correct Destination Slot Value : "+request.body.result.parameters.destination);
-      console.log("Bot should Respond with Source Station Prompt Now");
-    }
-  }
+  //   else if(request.body.result.contexts[0].name=="findtrainintent_dialog_params_source"){
+  //     if(request.body.result.parameters.destination==""){
+  //       console.log("Destination Slot Not Fulfilled. Spelling Wrong");
+  //       console.log("User Input Incorrect Destination Slot Value : "+request.body.result.resolvedQuery);
+  //       var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
+  //       var facebookResponse={
+  //                                "speech": "",
+  //                                "displayText": "",
+  //                                "data": {
+  //                                  "facebook": [
+  //                                    {
+  //                                        "text":"These are the stations I found for your Destination. Select a specific one please.",
+  //                                        "quick_replies":matched
+  //                                    }
+  //                                  ]
+  //                                },
+  //                                "contextOut": [],
+  //                                "source": "DuckDuckGo"
+  //                              }
+  //
+  //      response.send(facebookResponse);
+  //   //DO NOTHING
+  //   }
+  //   else{
+  //     console.log("User Input Correct Destination Slot Value : "+request.body.result.parameters.destination);
+  //     console.log("Bot should Respond with Source Station Prompt Now");
+  //   }
+  // }
 
 
 
