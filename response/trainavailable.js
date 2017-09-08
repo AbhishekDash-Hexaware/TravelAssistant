@@ -1,7 +1,17 @@
 module.exports = {
   'TrainCarousel' : function(train_number,train_name,train_travel_time,train_schedule_arrival,train_schedule_departure,train_cls,src,dest,doj,range,response){
     //console.log("Building Train Carousel");
-//
+    for(var z=0;z<train_cls.length;z++){
+      if(train_cls[z].code_data.length==0){
+        console.log("Train Class Data Missing at Train_Cls index  : "+z);
+        train_cls.splice(z,1);
+        train_number.splice(z,1);
+        train_name.splice(z,1);
+        train_schedule_arrival.splice(z,1);
+        train_schedule_departure.splice(z,1);
+        train_travel_time.splice(z,1);
+      }
+    }
     //console.log("Incoming Range : "+range);
     if(range[0]==null){
       //console.log("Nothing Inside");
