@@ -24,7 +24,7 @@ module.exports=function trainsBetween(src,dst,doj,day,callback){
 
 
         if (error) throw new Error(error);
-         //console.log(body);
+         console.log(body);
         let train_number =[];
         let train_name = [];
         let train_travel_time=[];
@@ -53,6 +53,8 @@ module.exports=function trainsBetween(src,dst,doj,day,callback){
                     train_travel_time.push(element.travel_time);
                     train_schedule_departure.push(element.src_departure_time);
                     train_schedule_arrival.push(element.dest_arrival_time);
+
+
 
                     for(var j=0;j<element.classes.length;j++){
                             if(element.classes[j].available==="Y"){
@@ -97,6 +99,7 @@ module.exports=function trainsBetween(src,dst,doj,day,callback){
             //msg=trains.join("\n");
           //  console.log("Trains Exist");
             //console.log(JSON.stringify(train_cls));
+
             callback(train_number,train_name,train_travel_time,train_schedule_arrival,train_schedule_departure,train_cls,null);
         }else{
             console.log("No Train Results");
