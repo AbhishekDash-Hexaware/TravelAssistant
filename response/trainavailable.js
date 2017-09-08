@@ -33,8 +33,6 @@ module.exports = {
       var flag=4;
       console.log("Setting Flag = "+flag);
       var messageOne="I'm sorry but there are no trains travelling from "+src+" to "+dest+" on this day.";
-
-      var messageMid="*Please note I don't show results of any Special Trains.";
     }
     else{
       var messageOne = "There are "+train_number.length+" trains available.";
@@ -303,8 +301,6 @@ console.log("Loop End : "+trainlength);
       }
 
       else if(flag==4){
-        console.log("N-1"+flag);
-
 
         var facebookResponse = {
                                 "speech": "",
@@ -313,7 +309,7 @@ console.log("Loop End : "+trainlength);
                                   "facebook": [{
                                     "text":messageOne
                                   },{
-                                    "text":messageMid
+                                    "text":"*Please note I don't show results of any Special Trains."
                                   },{
                                           "text":messageTwo,
                                           "quick_replies":[
@@ -355,6 +351,43 @@ console.log("Loop End : "+trainlength);
 
   'TrainCarouselNoData' : function(src,dst,response){
     //console.log("Building Train Carousel No Data");
+    if(src==dst){
+      var messageOne = "You seem to have given the destination and the source as the same station. That can't be right."
+      var facebookResponse = {
+                              "speech": "",
+                              "displayText": "",
+                              "data": {
+                                "facebook": [{
+                                        "text":messageOne,
+                                        "quick_replies":[
+                                        {
+                                          "content_type":"text",
+                                          "title":"Try Again",
+                                          "payload":"find_train"
+                                        },
+                                        {
+                                          "content_type":"text",
+                                          "title":"Check PNR Status",
+                                          "payload":"pnr_status"
+                                        },
+                                        {
+                                          "content_type":"text",
+                                          "title":"Another Question",
+                                          "payload":"another_query"
+                                        },
+                                        {
+                                          "content_type":"text",
+                                          "title":"That's all",
+                                          "payload":"thanks"
+                                        }
+                                      ]
+                                    }]
+                              },
+                              "contextOut": [],
+                              "source": "DuckDuckGo"
+                            };
+    }
+    else{
     var messageOne="I'm sorry but there are no trains travelling from "+src+" to "+dst+" on this day.";
 
     var messageTwo="*Please note I don't show results of any Special Trains."
@@ -395,6 +428,7 @@ console.log("Loop End : "+trainlength);
                             "contextOut": [],
                             "source": "DuckDuckGo"
                           };
+                        }
 
     response.send(facebookResponse);
   },
