@@ -213,7 +213,7 @@ console.log("Loop End : "+trainlength);
                                          "quick_replies":[
                                            {
                                              "content_type":"text",
-                                             "title":"",
+                                             "title":moretrainsTitle,
                                              "payload":dynamicTrainPayload
                                            },
                                          {
