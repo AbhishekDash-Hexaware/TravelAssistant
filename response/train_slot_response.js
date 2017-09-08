@@ -78,10 +78,14 @@ module.exports={
     }
 
 //myString.substr(-1);
+//var lastChar = myString.substr(myString.length -1);
 
     else if(request.body.result.fulfillment.speech=="Kindly tell me the Source Station Code or the Station City name from where you will be travelling."){
       console.log("Resolved Query : "+request.body.result.resolvedQuery);
-      if(request.body.result.resolvedQuery.substr(-1)=="$"){
+      let lastChar = request.body.result.resolvedQuery;
+      lastChar=lastChar.substr(lastChar.length-1);
+      if(lastChar=="$"){
+        console.log("Reinitializing resolvedQuery to Blank");
         let tempQuery = " ";
       }
 
