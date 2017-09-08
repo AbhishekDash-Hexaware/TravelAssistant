@@ -32,7 +32,7 @@ module.exports = {
 
       var flag=4;
       console.log("Setting Flag = "+flag);
-      var messageOne="I'm sorry but there are no trains travelling from "+src+" to "+dst+" on this day.";
+      var messageOne="I'm sorry but there are no trains travelling from "+src+" to "+dest+" on this day.";
 
       var messageMid="*Please note I don't show results of any Special Trains.";
     }
