@@ -62,7 +62,7 @@ module.exports={
                                                }
                                              ]
                                            },
-                                           "contextOut": [],
+                                           "contextOut": ["destination"],
                                            "source": "destination"
                                          }
 
