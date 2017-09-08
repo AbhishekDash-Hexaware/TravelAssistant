@@ -1,4 +1,4 @@
-var text = 'hello world i am a extreme bot';
+var text = 'HELLO WORLAD I AM BOTAS TRA JN CST';
 
-text=text.replace(/\b[a-z]/g,function(f){return f.toUpperCase();});
+text=text.toLowerCase().replace(/\b[a-z]/g,function(f){return f.toUpperCase();});
 console.log(text);
