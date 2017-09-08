@@ -29,8 +29,9 @@ module.exports = {
       var messageOne = "There is only "+train_number.length+" train available.";
     }
     else if(train_number.length==0){
-      console.log("Train Number =0 and Flag 4");
+
       var flag=4;
+      console.log("Setting Flag = "+flag);
     }
     else{
       var messageOne = "There are "+train_number.length+" trains available.";
@@ -247,7 +248,8 @@ console.log("Loop End : "+trainlength);
                                "source": "DuckDuckGo"
                              }
                             //  console.log("Facebook : : "+JSON.stringify(facebookResponse));
-                           }//end of custom JSON
+        }//end of custom JSON
+
        else if(flag==3){
         //console.log("Showing Train Response for Normal Range less than 10");
         var facebookResponse={
@@ -295,9 +297,10 @@ console.log("Loop End : "+trainlength);
                                 "contextOut": [],
                                 "source": "DuckDuckGo"
                               }
-                            }
+      }
+
       else if(flag==4){
-        console.log("N-1");
+        console.log("N-1"+flag);
         var messageOne="I'm sorry but there are no trains travelling from "+src+" to "+dst+" on this day.";
 
         var messageTwo="*Please note I don't show results of any Special Trains.";
