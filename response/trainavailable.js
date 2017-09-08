@@ -29,7 +29,7 @@ module.exports = {
       var messageOne = "There is only "+train_number.length+" train available.";
     }
     else{
-      var messageOne = "There are "+train_number.length+" trains available. I'll show you few at a time. Click More Trains to see the rest of them.";
+      var messageOne = "There are "+train_number.length+" trains available.";
     }
 
     var messageTwo = "Is there anything else?";
@@ -191,7 +191,7 @@ console.log("Loop End : "+trainlength);
         // range[0]=range[0]+10;
         // range[1]=range[1]+10;
        var dynamicTrainPayload = "from "+src+" to "+dest+" on "+doj+" start "+range[0]+" stop "+range[1];
-      //  console.log(dynamicTrainPayload);
+       var moretrainsTitle = "More Trains for "+src+" to "+dest;
        var facebookResponse={
                                "speech": "",
                                "displayText": "",
@@ -213,12 +213,12 @@ console.log("Loop End : "+trainlength);
                                          "quick_replies":[
                                            {
                                              "content_type":"text",
-                                             "title":"More Trains",
+                                             "title":"",
                                              "payload":dynamicTrainPayload
                                            },
                                          {
                                            "content_type":"text",
-                                           "title":"Find Another Train",
+                                           "title":"Another Train Journey",
                                            "payload":"find_train"
                                          },
                                          {
