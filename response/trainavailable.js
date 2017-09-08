@@ -29,7 +29,7 @@ module.exports = {
       var messageOne = "There is only "+train_number.length+" train available.";
     }
     else if(train_number.length==0){
-      var messageOne="I'm sorry but there are no trains travelling from "+src+" to "+dst+" on this day.";
+      var flag=4;
     }
     else{
       var messageOne = "There are "+train_number.length+" trains available.";
@@ -295,6 +295,49 @@ console.log("Loop End : "+trainlength);
                                 "source": "DuckDuckGo"
                               }
                             }
+      else if(flag==4){
+        var messageOne="I'm sorry but there are no trains travelling from "+src+" to "+dst+" on this day.";
+
+        var messageTwo="*Please note I don't show results of any Special Trains."
+        var facebookResponse = {
+                                "speech": "",
+                                "displayText": "",
+                                "data": {
+                                  "facebook": [{
+                                    "text":messageOne
+                                  },{
+                                    "text":messageTwo
+                                  },{
+                                          "text":"Is there anything else?",
+                                          "quick_replies":[
+                                          {
+                                            "content_type":"text",
+                                            "title":"Find Another Train",
+                                            "payload":"find_train"
+                                          },
+                                          {
+                                            "content_type":"text",
+                                            "title":"Check PNR Status",
+                                            "payload":"pnr_status"
+                                          },
+                                          {
+                                            "content_type":"text",
+                                            "title":"Another Question",
+                                            "payload":"another_query"
+                                          },
+                                          {
+                                            "content_type":"text",
+                                            "title":"That's all",
+                                            "payload":"thanks"
+                                          }
+                                        ]
+                                      }]
+                                },
+                                "contextOut": [],
+                                "source": "DuckDuckGo"
+                              };
+
+      }
 
 
     response.send(facebookResponse);
