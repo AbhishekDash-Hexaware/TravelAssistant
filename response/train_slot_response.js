@@ -52,7 +52,7 @@ module.exports={
             console.log("Will build Quick Replies for Destination");
             console.log(matched);
             var facebookResponse={
-                                           "speech": "",
+                                           "speech": "destination",
                                            "displayText": "",
                                            "data": {
                                              "facebook": [
@@ -62,8 +62,8 @@ module.exports={
                                                }
                                              ]
                                            },
-                                           "contextOut": ["destination"],
-                                           "source": "destination"
+                                           "contextOut": [],
+                                           "source": ""
                                          }
 
                  response.send(facebookResponse);
