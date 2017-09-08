@@ -39,11 +39,11 @@ module.exports={
     //No Jaro, Proceed
     //Date response Default
     if(request.body.result.fulfillment.speech=="Please tell me the Destination Station Code or the Station City name to where you will be travelling."){
-      console.log("Resolved Query : "+request.body.result.resolvedQuery);
+      console.log("Resolved Destination Query : "+request.body.result.resolvedQuery);
       if(request.body.result.parameters.destination==""){
         console.log("Destination Prompt Asked");
           var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
-          console.log("Matches returned : "+matched);
+          console.log("Matches returned for Destination: "+matched);
           if(matched.length==0){
             console.log("Proceed with Default Destination Response");
           }
@@ -79,11 +79,11 @@ module.exports={
 //
 
     else if(request.body.result.fulfillment.speech=="Kindly tell me the Source Station Code or the Station City name from where you will be travelling."){
-      console.log("Resolved Query : "+request.body.result.resolvedQuery);
+      console.log("Resolved Source Query : "+request.body.result.resolvedQuery);
       if(request.body.result.parameters.source==""){
         console.log("Source Prompt Asked");
         var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
-        console.log("Matches returned : "+matched);
+        console.log("Matches returned for Source : "+matched);
         if(matched.length==0){
           console.log("Proceed with Default Source Response");
         }
