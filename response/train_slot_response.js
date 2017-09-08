@@ -88,6 +88,9 @@ module.exports={
         console.log("Reinitializing resolvedQuery to Blank");
         var tempQuery = " ";
       }
+      else{
+        tempQuery=request.body.result.resolvedQuery;
+      }
 
       if(request.body.result.parameters.destination!=""&&request.body.result.parameters.source==""){
         console.log("Destination Prompt Input Correctly");
