@@ -296,9 +296,11 @@ console.log("Loop End : "+trainlength);
                               }
                             }
       else if(flag==4){
+        console.log("N-1");
         var messageOne="I'm sorry but there are no trains travelling from "+src+" to "+dst+" on this day.";
 
-        var messageTwo="*Please note I don't show results of any Special Trains."
+        var messageTwo="*Please note I don't show results of any Special Trains.";
+
         var facebookResponse = {
                                 "speech": "",
                                 "displayText": "",
