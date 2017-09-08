@@ -4,7 +4,7 @@ module.exports={
 
   'TrainPrompts': function(request,response){
     //var station_knowledge=require("../knowledge/station_code");
-    var stationknowledge=require("../knowledge/station_code");
+    var station_knowledge=require("../knowledge/station_code");
 
     var natural = require('natural');
     var spell = require('../textprocess/jarowrinkler');
