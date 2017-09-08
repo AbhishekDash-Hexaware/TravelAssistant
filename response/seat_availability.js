@@ -66,7 +66,7 @@ module.exports={
                     "title":"That's all",
                     "payload":"thanks"
                   })
-    var messageOne="It seems the seats for this class is unavailable at the moment. Try for this train later or go ahead for another train."
+    var messageOne="It seems IRCTC is updating the seats for this class at the moment. Try for this train later or go ahead for another train."
       var facebookResponse={
 
           "speech": "",
