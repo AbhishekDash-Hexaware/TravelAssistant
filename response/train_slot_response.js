@@ -11,6 +11,7 @@ module.exports={
 
 
     console.log("Slot Response Builder");
+    console.log(JSON.stringify(request.body));
     console.log("Current Context : ",JSON.stringify(request.body.result.contexts[0]));
     console.log("Next Context : ",JSON.stringify(request.body.result.contexts[1]));
     // if(request.body.result.parameters.destination==""&&request.body.result.parameters.source==""){
