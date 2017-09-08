@@ -3,6 +3,7 @@
 module.exports={
 
   'TrainPrompts': function(request,response){
+    //var station_knowledge=require("../knowledge/station_code");
     var stationknowledge=require("../knowledge/station_code");
 
     var natural = require('natural');
@@ -82,7 +83,19 @@ module.exports={
 
     else if(request.body.result.fulfillment.speech=="Kindly tell me the Source Station Code or the Station City name from where you will be travelling."){
       console.log("Resolved Query : "+request.body.result.resolvedQuery);
-      if(request.body.result.parameters.source==""){
+
+      var all_station_names = station_knowledge.data.entries;
+      var algo_flag=0;
+      all_station_names.forEach(function(element){
+        if(request.body.result.resolvedQuery.toUpperCase()==element.synonyms[0]){
+        //console.log(natural.JaroWinklerDistance(element.synonyms[0], station_name),element.synonyms[0],station_name);
+        console.log("No Jaro Wrinkler Required");
+        algo_flag=1;
+
+  			  }
+      })
+
+      if(algo_flag==0){
 
       let lastChar = request.body.result.resolvedQuery;
       lastChar=lastChar.substr(lastChar.length-1);
@@ -125,6 +138,7 @@ module.exports={
     }
 
 
+
         //else if(request.body.result.parameters.source==""){
       //   console.log("Source Prompt Asked");
       //   var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
@@ -137,8 +151,8 @@ module.exports={
       //     console.log(matched);
       //   }
       // }
-      else if(request.body.result.parameters.source!=""){
-        console.log("Source Obtained Correctly : "+request.body.result.parameters.source);
+      else if(algo_flag==1){
+        console.log("Destination Obtained Correctly : Should ask Source Now : "+request.body.result.parameters.source);
 
       }
 
