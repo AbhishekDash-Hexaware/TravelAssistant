@@ -79,9 +79,9 @@ module.exports={
 //
 
     else if(request.body.result.fulfillment.speech=="Kindly tell me the Source Station Code or the Station City name from where you will be travelling."){
-      console.log("Resolved Source Query : "+request.body.result.resolvedQuery);
-      if(request.body.result.parameters.source==""){
-        console.log("Source Prompt Asked");
+      console.log("Resolved Query : "+request.body.result.resolvedQuery);
+      if(request.body.result.parameters.destination!=""&&request.body.result.parameters.source==""){
+        console.log("Destination Prompt Input Correctly");
         var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
         console.log("Matches returned for Source : "+matched);
         if(matched.length==0){
@@ -90,8 +90,38 @@ module.exports={
         else{
           console.log("Will build Quick Replies for Source");
           console.log(matched);
+          var facebookResponse={
+                                         "speech": "",
+                                         "displayText": "",
+                                         "data": {
+                                           "facebook": [
+                                             {
+                                                 "text":"These are the stations I found for your Source. Select a specific one please.",
+                                                 "quick_replies":matched
+                                             }
+                                           ]
+                                         },
+                                         "contextOut": [],
+                                         "source": "DuckDuckGo"
+                                       }
+
+               response.send(facebookResponse);
         }
       }
+
+
+        //else if(request.body.result.parameters.source==""){
+      //   console.log("Source Prompt Asked");
+      //   var matched  =spell.conversationNorm(request.body.result.resolvedQuery);
+      //   console.log("Matches returned for Source : "+matched);
+      //   if(matched.length==0){
+      //     console.log("Proceed with Default Source Response");
+      //   }
+      //   else{
+      //     console.log("Will build Quick Replies for Source");
+      //     console.log(matched);
+      //   }
+      // }
       else if(request.body.result.parameters.source!=""){
         console.log("Source Obtained Correctly : "+request.body.result.parameters.source);
 
