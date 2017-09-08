@@ -191,7 +191,7 @@ console.log("Loop End : "+trainlength);
         // range[0]=range[0]+10;
         // range[1]=range[1]+10;
        var dynamicTrainPayload = "from "+src+" to "+dest+" on "+doj+" start "+range[0]+" stop "+range[1];
-       var moretrainsTitle = "More Trains for "+src+" to "+dest;
+      //  console.log(dynamicTrainPayload);
        var facebookResponse={
                                "speech": "",
                                "displayText": "",
@@ -213,12 +213,12 @@ console.log("Loop End : "+trainlength);
                                          "quick_replies":[
                                            {
                                              "content_type":"text",
-                                             "title":moretrainsTitle,
+                                             "title":"More Trains",
                                              "payload":dynamicTrainPayload
                                            },
                                          {
                                            "content_type":"text",
-                                           "title":"Another Train Journey",
+                                           "title":"Find Another Train",
                                            "payload":"find_train"
                                          },
                                          {
