@@ -28,6 +28,9 @@ module.exports = {
     if(train_number.length==1){
       var messageOne = "There is only "+train_number.length+" train available.";
     }
+    else if(train_number.length==0){
+      var messageOne="I'm sorry but there are no trains travelling from "+src+" to "+dst+" on this day.";
+    }
     else{
       var messageOne = "There are "+train_number.length+" trains available.";
     }
@@ -303,8 +306,8 @@ console.log("Loop End : "+trainlength);
   'TrainCarouselNoData' : function(src,dst,response){
     //console.log("Building Train Carousel No Data");
     var messageOne="I'm sorry but there are no trains travelling from "+src+" to "+dst+" on this day.";
-    var messageTwo="Or, you may have given me the source or destination with a wrong spelling.";
-    var messageThree="*Please note I don't show results of any Special Trains."
+
+    var messageTwo="*Please note I don't show results of any Special Trains."
     var facebookResponse = {
                             "speech": "",
                             "displayText": "",
@@ -314,13 +317,11 @@ console.log("Loop End : "+trainlength);
                               },{
                                 "text":messageTwo
                               },{
-                                "text":messageThree
-                              },{
                                       "text":"Is there anything else?",
                                       "quick_replies":[
                                       {
                                         "content_type":"text",
-                                        "title":"Try Again",
+                                        "title":"Find Another Train",
                                         "payload":"find_train"
                                       },
                                       {
