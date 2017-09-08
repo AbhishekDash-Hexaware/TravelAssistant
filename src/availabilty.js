@@ -3,7 +3,7 @@ module.exports=function seatAvailability(trainNo,src,dst,date,cls,quota,callback
 // function seatAvailability(trainNo,src,dst,date,cls,kota){
     var request = require("request");
 
-    console.log("inside seatAvailability rest call",trainNo,src,dst,date,cls,quota);
+    //console.log("inside seatAvailability rest call",trainNo,src,dst,date,cls,quota);
     var options = {
     method: 'GET',
     url: `http://api.railwayapi.com/v2/check-seat/train/${trainNo}/source/${src}/dest/${dst}/date/${date}/class/${cls}/quota/${quota}/apikey/663h5e2h1b/`,

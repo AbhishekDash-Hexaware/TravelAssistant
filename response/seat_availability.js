@@ -1,6 +1,6 @@
 module.exports={
   'seatCarousel':function(multidata,reqcontext,response) {
-    console.log("Inside : "+reqcontext,typeof reqcontext);
+    //console.log("Inside : "+reqcontext,typeof reqcontext);
     var data=multidata[0].availability;
     var train_name=multidata[0].train_name;
     var class_name=multidata[0].cls;
@@ -17,16 +17,16 @@ module.exports={
         // console.log(typeof element ,typeof class_code);
         // console.log(element,"is not equal to",class_code);
         let quick_title="Check "+element+" Seats";
-        let quick_payload="class "+element; 
+        let quick_payload="class "+element;
         dynamicQuickReplies.push({
           "content_type":"text",
           "title": quick_title,
           "payload": quick_payload
         });
-      } 
+      }
     });
 
-    console.log("Dynamic Quick Replies built");
+    //console.log("Dynamic Quick Replies built");
     if(train_name =="UNAVAILABLE"){
       var flag=1;
     }

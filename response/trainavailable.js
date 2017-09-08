@@ -1,25 +1,25 @@
 module.exports = {
   'TrainCarousel' : function(train_number,train_name,train_travel_time,train_schedule_arrival,train_schedule_departure,train_cls,src,dest,doj,range,response){
-    console.log("Building Train Carousel");
+    //console.log("Building Train Carousel");
 //
-    console.log("Incoming Range : "+range);
+    //console.log("Incoming Range : "+range);
     if(range[0]==null){
-      console.log("Nothing Inside");
+      //console.log("Nothing Inside");
       range[0]=0;
       range[1]=10;
     }
     else {
-      console.log("Something Inside : "+range);
+      //console.log("Something Inside : "+range);
 
     }
-    console.log("Range parameters Now : "+range);
-//
+    //console.log("Range parameters Now : "+range);
+
     var dynamicBody=[];
     if(train_number.length==1){
       var messageOne = "There is only "+train_number.length+" train available.";
     }
     else{
-      var messageOne = "There are "+train_number.length+" trains available. I'll show you few at a time. Click More Trains to see the rest of them."; 
+      var messageOne = "There are "+train_number.length+" trains available. I'll show you few at a time. Click More Trains to see the rest of them.";
     }
 
     var messageTwo = "Is there anything else?";
@@ -48,20 +48,20 @@ module.exports = {
     var trainlength=train_number.length;
 
      if(trainlength<=10){
-         console.log("Normal less than or equals 10 flag set as 1");
+         //console.log("Normal less than or equals 10 flag set as 1");
          var flag=1;
          range[1]=trainlength;
     }
     else if(trainlength>10){
-      console.log("Greater than 10")
+      //console.log("Greater than 10")
       if(trainlength==range[1]){
         var flag=3;
-        console.log("Final Flag");
+        //console.log("Final Flag");
         trainlength=range[1];
       }
       else{
         //trainlength=range[1]-range[0];
-        console.log("Loop counter now : "+range[1]);
+        //console.log("Loop counter now : "+range[1]);
         var flag=2;
       }
     }
@@ -165,7 +165,7 @@ console.log("Loop End : "+trainlength);
             // console.log("Remainder="+remainder);
 
           if(range[0]==(train_number.length-remainder)){
-            console.log("Range[0]==(trainlength-remainder)");
+            //console.log("Range[0]==(trainlength-remainder)");
             //range[0]=temp;
             range[1]=range[0]+remainder;
             // console.log("Setting Range[1]="+range[1]);
@@ -235,7 +235,7 @@ console.log("Loop End : "+trainlength);
                             //  console.log("Facebook : : "+JSON.stringify(facebookResponse));
                            }//end of custom JSON
        else if(flag==3){
-        console.log("Showing Train Response for Normal Range less than 10");
+        //console.log("Showing Train Response for Normal Range less than 10");
         var facebookResponse={
                                 "speech": "",
                                 "displayText": "",
@@ -291,7 +291,7 @@ console.log("Loop End : "+trainlength);
 
 
   'TrainCarouselNoData' : function(src,dst,response){
-    console.log("Building Train Carousel No Data");
+    //console.log("Building Train Carousel No Data");
     var messageOne="I'm sorry but there are no trains travelling from "+src+" to "+dst+" on this day.";
     var messageTwo="Or, you may have given me the source or destination with a wrong spelling.";
     var messageThree="*Please note I don't show results of any Special Trains."
@@ -338,7 +338,7 @@ console.log("Loop End : "+trainlength);
     response.send(facebookResponse);
   },
   'pastDate':function(response){
-    console.log("Building Train Carousel No Data");
+    //console.log("Building Train Carousel No Data");
     var messageOne="Trains travel to your destination, not to the past. :P";
     var messageTwo="Seems like you have givem me a past date";
     var facebookResponse = {
