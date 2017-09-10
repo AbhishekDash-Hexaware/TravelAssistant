@@ -37,6 +37,7 @@ module.exports = {
 		    all_station_names.forEach(function(element){
 		      if(natural.JaroWinklerDistance(element.synonyms[0], station_name)>=0.80){
 		      //console.log(natural.JaroWinklerDistance(element.synonyms[0], station_name),element.synonyms[0],station_name);
+					console.log("Confidence Score is "+natural.JaroWinklerDistance(element.synonyms[0], station_name)+" for "+element.synonyms[0]);
 					let payloadtitle = element.synonyms[0].toLowerCase().replace(/\b[a-z]/g,function(f){return f.toUpperCase();});
 
 
