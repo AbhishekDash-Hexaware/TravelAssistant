@@ -35,7 +35,7 @@ module.exports = {
 		    var matched_stations=[];
 
 		    all_station_names.forEach(function(element){
-		      if(natural.JaroWinklerDistance(element.synonyms[0], station_name)>=0.87){
+		      if(natural.JaroWinklerDistance(element.synonyms[0], station_name)>=0.80){
 		      //console.log(natural.JaroWinklerDistance(element.synonyms[0], station_name),element.synonyms[0],station_name);
 					let payloadtitle = element.synonyms[0].toLowerCase().replace(/\b[a-z]/g,function(f){return f.toUpperCase();});
 
