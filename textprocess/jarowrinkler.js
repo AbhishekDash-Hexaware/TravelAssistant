@@ -63,9 +63,9 @@ module.exports = {
 				console.log(confidence_score);
 
 				for(var k=0;k<confidence_score.length;k++){
-					if(natural.JaroWinklerDistance(all_station_names.synonyms[0], station_name)==confidence_score[k]){
-					let payloadtext_sorted = all_station_names.synonyms[0]+" $";
-					let payloadtitle_sorted = all_station_names.synonyms[0].toLowerCase().replace(/\b[a-z]/g,function(f){return f.toUpperCase();});
+					if(natural.JaroWinklerDistance(all_station_names[k].synonyms[0], station_name)==confidence_score[k]){
+					let payloadtext_sorted = all_station_names[k].synonyms[0]+" $";
+					let payloadtitle_sorted = all_station_names[k].synonyms[0].toLowerCase().replace(/\b[a-z]/g,function(f){return f.toUpperCase();});
 					matched_stations.push({
 			        "content_type":"text",
 			        "title":payloadtitle_sorted,
