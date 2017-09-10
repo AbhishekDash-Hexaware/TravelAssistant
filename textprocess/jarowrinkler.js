@@ -34,6 +34,7 @@ module.exports = {
 				var all_station_names = station_knowledge.data.entries;
 		    var matched_stations=[];
 
+
 		    all_station_names.forEach(function(element){
 		      if(natural.JaroWinklerDistance(element.synonyms[0], station_name)>=0.80){
 		      //console.log(natural.JaroWinklerDistance(element.synonyms[0], station_name),element.synonyms[0],station_name);
