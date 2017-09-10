@@ -34,47 +34,22 @@ module.exports = {
 				var all_station_names = station_knowledge.data.entries;
 		    var matched_stations=[];
 
-				//------------------------------------
-				var confidence_score = [];
-				// var payloadtitle_sorted;
-				// var payloadtext_sorted;
-				//------------------------------------
 		    all_station_names.forEach(function(element){
 		      if(natural.JaroWinklerDistance(element.synonyms[0], station_name)>=0.80){
-
-						confidence_score.push(natural.JaroWinklerDistance(element.synonyms[0], station_name));
-					}
-
 		      //console.log(natural.JaroWinklerDistance(element.synonyms[0], station_name),element.synonyms[0],station_name);
-				// 	console.log("Confidence Score is "+natural.JaroWinklerDistance(element.synonyms[0], station_name)+" for "+element.synonyms[0]);
-				// 	let payloadtitle = element.synonyms[0].toLowerCase().replace(/\b[a-z]/g,function(f){return f.toUpperCase();});
-				//
-				//
-				// 	let payloadtext=element.synonyms[0]+" $";
-		    //   matched_stations.push({
-		    //     "content_type":"text",
-		    //     "title":payloadtitle,
-		    //     "payload":payloadtext
-		    //   })
-		    //   // matched_stations.push(element.synonyms[0])
-		    // }
+					console.log("Confidence Score is "+natural.JaroWinklerDistance(element.synonyms[0], station_name)+" for "+element.synonyms[0]);
+					let payloadtitle = element.synonyms[0].toLowerCase().replace(/\b[a-z]/g,function(f){return f.toUpperCase();});
+
+
+					let payloadtext=element.synonyms[0]+" $";
+		      matched_stations.push({
+		        "content_type":"text",
+		        "title":payloadtitle,
+		        "payload":payloadtext
+		      })
+		      // matched_stations.push(element.synonyms[0])
+		    }
 		    })
-				confidence_score.sort();
-				console.log(confidence_score);
-
-				for(var k=0;k<confidence_score.length;k++){
-					if(natural.JaroWinklerDistance(all_station_names[k].synonyms[0], station_name)==confidence_score[k]){
-					let payloadtext_sorted = all_station_names[k].synonyms[0]+" $";
-					let payloadtitle_sorted = all_station_names[k].synonyms[0].toLowerCase().replace(/\b[a-z]/g,function(f){return f.toUpperCase();});
-					matched_stations.push({
-			        "content_type":"text",
-			        "title":payloadtitle_sorted,
-			        "payload":payloadtext_sorted
-			      })
-					}
-				}
-
-
 		    return(matched_stations);
 		}
 
