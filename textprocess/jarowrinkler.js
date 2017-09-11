@@ -48,7 +48,6 @@ module.exports = {
 
 				for (var i=0;i<confidence_score.length-1;i++){
 					for (var j=1;j<result.length;j++){
-						console.log("over here before if condition",confidence_score[i],confidence_score[i+1])
 						if(confidence_score[i]<confidence_score[j]){
 							console.log("over hereafter condition",confidence_score[i],confidence_score[i+1])
 							var temp = result[j];
