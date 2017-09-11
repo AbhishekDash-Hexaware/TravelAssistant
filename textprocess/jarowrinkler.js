@@ -43,16 +43,20 @@ module.exports = {
 					result.push(element.synonyms[0]);
 		    }
 		    })
+				console.log("before sorting",confidence_score);
+				console.log("before sorting",result);
 				for (var i=0;i<confidence_score.length-1;i++){
 					for (var j=0;j<result.length-1;j++){
-						if(confidence_score[i+1]<confidence_score[i]){
+						if(confidence_score[i]<confidence_score[i+1]){
 							var temp = result[i+1];
 							result[i+1]=result[i];
 							result[i]= temp;
 						}//
 					}
-
 				}
+				console.log("before sorting",confidence_score);
+				console.log("before sorting",result);
+
 
 				result.forEach(function(element){
 
