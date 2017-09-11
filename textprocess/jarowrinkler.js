@@ -57,7 +57,7 @@ module.exports = {
 						}
 					}
 				}
-				console.log("after sorting",confidence_score.sort(function(a, b){return b-a}););
+				console.log("after sorting",confidence_score.sort(function(a, b){return b-a}));
 				console.log("after sorting",result);
 
 
