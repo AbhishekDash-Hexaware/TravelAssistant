@@ -45,7 +45,7 @@ module.exports = {
 		    })
 				for (var i=0;i<confidence_score.length-1;i++){
 					for (var j=0;j<result.length-1;j++){
-						if(confidence_score[i+1]>confidence_score[i]){
+						if(confidence_score[i+1]<confidence_score[i]){
 							var temp = result[i+1];
 							result[i+1]=result[i];
 							result[i]= temp;
