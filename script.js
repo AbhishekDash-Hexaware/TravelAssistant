@@ -1,17 +1,17 @@
-var places = ["CHENGALPATTU JUNCTION","CHENGANNUR","CHENNAI CENTRAL","CHENNAI EGMORE","CHUNAR"];
-var score = [0.8142857142857143,0.8866666666666667,0.88,0.8857142857142858,0.8222222222222222 ];
-var scoreA = score.slice();
-var sortedplaces = [];
+var result = ["CHENGALPATTU JUNCTION","CHENGANNUR","CHENNAI CENTRAL","CHENNAI EGMORE","CHUNAR"];
+var confidence_score = [0.8142857142857143,0.8866666666666667,0.88,0.8857142857142858,0.8222222222222222 ];
+var score_new = confidence_score.slice();
+var matched_stations = [];
 
-scoreA.sort(function(a, b){return b-a})
+score_new.sort(function(a, b){return b-a})
 
-for(var i in scoreA){
+for(var i in score_new){
 
-  sortedplaces.push(places[score.indexOf(scoreA[i])]);
+  matched_stations.push(result[confidence_score.indexOf(score_new[i])]);
 }
 
 //console.log();
-console.log(sortedplaces);
+console.log(matched_stations);
 //console.log(scoreA);
 
 // console.log("before sort ",score.join());

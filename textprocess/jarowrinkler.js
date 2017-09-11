@@ -49,7 +49,7 @@ module.exports = {
 
 				var score_new = confidence_score.slice();
 				console.log("Ref : "+score_new);
-				confidence_score.sort(function(a, b){return b-a})
+				score_new.sort(function(a, b){return b-a});
 				console.log("Sorted Score : "+confidence_score);
 				for(var i in score_new){
 
