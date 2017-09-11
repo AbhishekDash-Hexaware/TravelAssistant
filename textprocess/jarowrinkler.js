@@ -49,7 +49,7 @@ module.exports = {
 				var score_new = confidence_score.slice();
 				confidence_score.sort(function(a, b){return b-a})
 
-				for(var i in scoreA){
+				for(var i in score_new){
 
 				  reversed_stations.push(result[confidence_score.indexOf(score_new[i])]);
 				}
