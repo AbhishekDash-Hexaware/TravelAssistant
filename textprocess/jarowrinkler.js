@@ -35,6 +35,8 @@ module.exports = {
 		    var matched_stations=[];
 				var confidence_score = [];
 				var result =[];
+				var reversed_stations = [];
+
 		    all_station_names.forEach(function(element){
 		      if(natural.JaroWinklerDistance(element.synonyms[0], station_name)>=0.80){
 		      //console.log(natural.JaroWinklerDistance(element.synonyms[0], station_name),element.synonyms[0],station_name);
@@ -43,24 +45,16 @@ module.exports = {
 					result.push(element.synonyms[0]);
 		    }
 		    })
-				console.log("before sorting",confidence_score);
-				console.log("before sorting",result);
 
-				for (var i=0;i<confidence_score.length-1;i++){
-					for (var j=1;j<result.length;j++){
-						if(confidence_score[i]<confidence_score[j]){
-							console.log("over hereafter condition",confidence_score[i],confidence_score[i+1])
-							var temp = result[j];
-							result[j]=result[i];
-							result[i]= temp;
-						}
-					}
+				var score_new = confidence_score.slice();
+				confidence_score.sort(function(a, b){return b-a})
+
+				for(var i in scoreA){
+
+				  reversed_stations.push(result[confidence_score.indexOf(score_new[i])]);
 				}
-				console.log("after sorting",confidence_score.sort(function(a, b){return b-a}));
-				console.log("after sorting",result);
 
-
-				result.forEach(function(element){
+				reversed_stations.forEach(function(element){
 
 				let payloadtitle = element.toLowerCase().replace(/\b[a-z]/g,function(f){return f.toUpperCase();});
 				let payloadtext=element+" $";
