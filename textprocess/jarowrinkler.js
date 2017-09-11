@@ -63,7 +63,7 @@ module.exports = {
 				  "title":payloadtitle,
 				  "payload":payloadtext
 					})
-				matched_stations.push(element)
+				//matched_stations.push(element)
 				})
 
 		    return(matched_stations);
