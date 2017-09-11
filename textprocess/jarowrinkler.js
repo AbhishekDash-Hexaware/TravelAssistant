@@ -46,14 +46,16 @@ module.exports = {
 		    }
 		    })
 
-				var score_new = confidence_score.slice();
-				confidence_score.sort(function(a, b){return b-a})
 
+				var score_new = confidence_score.slice();
+				console.log("Ref : "+score_new);
+				confidence_score.sort(function(a, b){return b-a})
+				console.log("Sorted Score : "+score_new);
 				for(var i in score_new){
 
 				  reversed_stations.push(result[confidence_score.indexOf(score_new[i])]);
 				}
-
+				console.log("Reversed Stations : "+reversed_stations);
 				reversed_stations.forEach(function(element){
 
 				let payloadtitle = element.toLowerCase().replace(/\b[a-z]/g,function(f){return f.toUpperCase();});
