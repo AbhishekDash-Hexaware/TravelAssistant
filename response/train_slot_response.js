@@ -114,7 +114,7 @@ module.exports={
                                            "facebook": [
                                              {
                                                  "text":"Kindly tell me the Source Station Code or the Station City name from where you will be travelling.",
-
+                                                 
                                              }
                                            ]
                                          },
